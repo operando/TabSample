@@ -15,7 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let tab = UITabBarController()
+        
+        var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let f = storyboard.instantiateViewControllerWithIdentifier("Tab1") as! UIViewController
+        let s = storyboard.instantiateViewControllerWithIdentifier("Tab2") as! UIViewController
+        
+        f.tabBarItem = UITabBarItem(title: "item1", image: nil, tag: 0)
+        s.tabBarItem = UITabBarItem(title: "item2", image: nil, tag: 1)        
+        tab.setViewControllers([f,s], animated: true)
+        
+//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        self.window?.rootViewController = tab
+//        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
